@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 
 /**
  * bully
@@ -60,6 +59,6 @@ public class bully {
             start++;
         }
         System.out.println(max + " Is the new Cordinator");
-       
+       s.close();
     }
 }
