@@ -43,28 +43,58 @@ class CircularList {
             System.out.println();
         }
     }
+    // public void display(int value){
+    //     Queue<Integer> qu = new LinkedList<Integer>();
+    //     Node curr = head;
+    //     int max = 0;
+    //     while(curr.val != value){
+    //         curr = curr.next;
+    //     }
+    //     // System.out.println(curr.val + " is sending message");
+    //     qu.add(curr.val);
+    //     System.out.println(qu);
+    //     curr = curr.next;
+    //     while(curr.val != value){
+    //         qu.add(curr.val);
+    //         System.out.println(qu);
+    //         curr = curr.next;
+    //         // System.out.println(curr.val + " is sending message");
+    //         max = Math.max(max, curr.val);
+    //     }
+
+    //     System.out.println(qu);
+    //     System.out.println("Leader is "+ max);
+        
+    // }
     public void display(int value){
         Queue<Integer> qu = new LinkedList<Integer>();
         Node curr = head;
-        int max = 0;
+        Node temp = head;
         while(curr.val != value){
             curr = curr.next;
         }
-        // System.out.println(curr.val + " is sending message");
         qu.add(curr.val);
         System.out.println(qu);
         curr = curr.next;
         while(curr.val != value){
-            qu.add(curr.val);
-            System.out.println(qu);
-            curr = curr.next;
-            // System.out.println(curr.val + " is sending message");
-            max = Math.max(max, curr.val);
+            
+            if(curr.val > value){
+                qu.remove();
+                qu.add(curr.val);
+                System.out.println(qu);
+                value = curr.val;
+                curr = curr.next;
+            } else {
+                System.out.println(curr.val);
+                curr = curr.next;
+            }
+        }
+        while(temp.val != value){
+            System.out.println(temp.val + " Sends message that leader is " + value);
+            temp = temp.next;
         }
 
-        System.out.println(qu);
-        System.out.println("Leader is "+ max);
-        
+        System.out.println("Leader is " + value);
     }
 
     public void delete(int value) {
