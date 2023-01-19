@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-
 class CircularList {
     public class Node {
         int val;
@@ -44,43 +43,46 @@ class CircularList {
         }
     }
     // public void display(int value){
-    //     Queue<Integer> qu = new LinkedList<Integer>();
-    //     Node curr = head;
-    //     int max = 0;
-    //     while(curr.val != value){
-    //         curr = curr.next;
-    //     }
-    //     // System.out.println(curr.val + " is sending message");
-    //     qu.add(curr.val);
-    //     System.out.println(qu);
-    //     curr = curr.next;
-    //     while(curr.val != value){
-    //         qu.add(curr.val);
-    //         System.out.println(qu);
-    //         curr = curr.next;
-    //         // System.out.println(curr.val + " is sending message");
-    //         max = Math.max(max, curr.val);
-    //     }
-
-    //     System.out.println(qu);
-    //     System.out.println("Leader is "+ max);
-        
+    // Queue<Integer> qu = new LinkedList<Integer>();
+    // Node curr = head;
+    // int max = 0;
+    // while(curr.val != value){
+    // curr = curr.next;
     // }
-    public void display(int value){
+    // // System.out.println(curr.val + " is sending message");
+    // qu.add(curr.val);
+    // System.out.println(qu);
+    // curr = curr.next;
+    // while(curr.val != value){
+    // qu.add(curr.val);
+    // System.out.println(qu);
+    // curr = curr.next;
+    // // System.out.println(curr.val + " is sending message");
+    // max = Math.max(max, curr.val);
+    // }
+
+    // System.out.println(qu);
+    // System.out.println("Leader is "+ max);
+
+    // }
+    public void display(int value) {
         Queue<Integer> qu = new LinkedList<Integer>();
         Node curr = head;
         Node temp = head;
-        while(curr.val != value){
+        while (curr.val != value) {
             curr = curr.next;
         }
         qu.add(curr.val);
+        System.out.println(curr.val + "Sends message");
         System.out.println(qu);
         curr = curr.next;
-        while(curr.val != value){
-            
-            if(curr.val > value){
+        while (curr.val != value) {
+
+            if (curr.val > value) {
                 qu.remove();
                 qu.add(curr.val);
+                System.out.println(curr.val + "Sends message");
+
                 System.out.println(qu);
                 value = curr.val;
                 curr = curr.next;
@@ -89,7 +91,7 @@ class CircularList {
                 curr = curr.next;
             }
         }
-        while(temp.val != value){
+        while (temp.val != value) {
             System.out.println(temp.val + " Sends message that leader is " + value);
             temp = temp.next;
         }
